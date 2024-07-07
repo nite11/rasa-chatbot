@@ -1,0 +1,206 @@
+version: "3.1"
+
+stories:
+
+- story: everything_goes_well_new_user
+  steps:
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: affirm
+  - action: action_set_olduser
+  - intent: affirm
+  - action: utter_ask_release_from
+  - intent: release_from
+    entities:
+    - year_from: '2020'
+  - slot_was_set:
+    - year_from: '2020'
+  - action: utter_ask_release_to
+  - intent: release_to
+    entities:
+    - year_to: '2023'
+  - slot_was_set:
+    - year_to: '2023'
+  - action: utter_ask_user_rating
+  - intent: movie_user_rating
+    entities:
+    - user_rating: '9'
+  - slot_was_set:
+    - user_rating: '9'
+  - action: action_fetch_imdb
+  - intent: affirm
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: everything_goes_well_old_user
+  steps:
+  - intent: greet
+  - action: action_check_ustatus
+  - slot_was_set:
+    - new_user: false
+  - intent: affirm
+  - action: utter_ask_release_from
+  - intent: release_from
+    entities:
+    - year_from: '2020'
+  - slot_was_set:
+    - year_from: '2020'
+  - action: utter_ask_release_to
+  - intent: release_to
+    entities:
+    - year_to: '2023'
+  - slot_was_set:
+    - year_to: '2023'
+  - action: utter_ask_user_rating
+  - intent: movie_user_rating
+    entities:
+    - user_rating: '9'
+  - slot_was_set:
+    - user_rating: '9'
+  - action: action_fetch_imdb
+  - intent: affirm
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enters_wrong_name_new_user
+  steps:
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: deny
+  - action: utter_name_reenter
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: affirm
+  - action: action_set_olduser
+  - intent: affirm
+  - action: utter_ask_release_from
+  - intent: release_from
+    entities:
+    - year_from: '1991'
+  - slot_was_set:
+    - year_from: '1991'
+  - action: utter_ask_release_to
+  - intent: release_to
+    entities:
+    - year_to: '2015'
+  - slot_was_set:
+    - year_to: '2015'
+  - action: utter_ask_user_rating
+  - intent: movie_user_rating
+    entities:
+    - user_rating: '7'
+  - slot_was_set:
+    - user_rating: '7'
+  - action: action_fetch_imdb
+  - intent: affirm
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: movie_suggestions_denied_new_user
+  steps:
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: deny
+  - action: utter_name_reenter
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: affirm
+  - action: action_set_olduser
+  - intent: deny
+  - action: utter_goodbye
+
+- story: movie_suggestions_denied_old_user
+  steps:
+  - intent: greet
+  - action: action_check_ustatus
+  - slot_was_set:
+    - new_user: false
+  - intent: deny
+  - action: utter_goodbye
+
+- story: request_new_suggestions1
+  steps:
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: affirm
+  - action: action_set_olduser
+  - intent: affirm
+  - action: utter_ask_release_from
+  - intent: release_from
+    entities:
+    - year_from: '1991'
+  - slot_was_set:
+    - year_from: '1991'
+  - action: utter_ask_release_to
+  - intent: release_to
+    entities:
+    - year_to: '2015'
+  - slot_was_set:
+    - year_to: '2015'
+  - action: utter_ask_user_rating
+  - intent: movie_user_rating
+    entities:
+    - user_rating: '7'
+  - slot_was_set:
+    - user_rating: '7'
+  - action: action_fetch_imdb
+  - intent: deny
+  - action: utter_new_entries
+  - intent: deny
+  - action: utter_goodbye
+
+- story: request_new_suggestions2
+  steps:
+  - intent: name_entry
+  - action: action_set_fname
+  - intent: affirm
+  - action: action_set_olduser
+  - intent: affirm
+  - action: utter_ask_release_from
+  - intent: release_from
+    entities:
+    - year_from: '1991'
+  - slot_was_set:
+    - year_from: '1991'
+  - action: utter_ask_release_to
+  - intent: release_to
+    entities:
+    - year_to: '2015'
+  - slot_was_set:
+    - year_to: '2015'
+  - action: utter_ask_user_rating
+  - intent: movie_user_rating
+    entities:
+    - user_rating: '7'
+  - slot_was_set:
+    - user_rating: '7'
+  - action: action_fetch_imdb
+  - intent: deny
+  - action: utter_new_entries
+  - intent: affirm
+  - action: utter_ask_release_from
+  - intent: release_from
+    entities:
+    - year_from: '1991'
+  - slot_was_set:
+    - year_from: '1991'
+  - action: utter_ask_release_to
+  - intent: release_to
+    entities:
+    - year_to: '2015'
+  - slot_was_set:
+    - year_to: '2015'
+  - action: utter_ask_user_rating
+  - intent: movie_user_rating
+    entities:
+    - user_rating: '7'
+  - slot_was_set:
+    - user_rating: '7'
+  - action: action_fetch_imdb
+  - intent: affirm
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye

@@ -1,0 +1,127 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hey wait
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - no bye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yeah
+    - definitely
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nein
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: name_entry
+  examples: |
+    - name is marta
+    - name is xaver
+    - name is gerhard
+    - name is claudia
+    - name is john
+    - name is     virat
+- intent: release_from
+  examples: |
+    - From [1990](year_from)
+    - From [2000](year_from)
+    - From: [2010](year_from)
+    - From- [1961](year_from)
+    - From: [2024](year_from)
+    - From [2006](year_from)
+    - From - [2010](year_from)
+- intent: release_to
+  examples: |
+    - To [1990](year_to)
+    - To [2000](year_to)
+    - To [2021](year_to)
+    - To: [2008](year_to)
+    - To: [1995](year_to)
+    - To- [2023](year_to)
+    - To [2010](year_to)
+    - to:- [2019](year_to)
+- intent: movie_user_rating
+  examples: |
+    - Rating: [0](user_rating)
+    - Rating [9](user_rating)
+    - Rating- [10](user_rating)
+    - Rating [1](user_rating)
+    - Rating: [6](user_rating)
+    - rating is [7.5](user_rating)
+- intent: restart
+  examples: |
+    - restart

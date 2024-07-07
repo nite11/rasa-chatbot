@@ -1,0 +1,100 @@
+version: '3.1'
+intents:
+- affirm
+- restart
+- bot_challenge
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- movie_user_rating
+- name_entry
+- release_from
+- release_to
+responses:
+  utter_new_entries:
+  - text: Do you want to change your entries {fname}?
+  utter_ask_release_from:
+  - text: Release year from? Start your answer with "From"
+  utter_ask_release_to:
+  - text: From {year_from} to which year? Start your answer with "To"
+  utter_ask_user_rating:
+  - text: Minimum user rating? Enter a rating from 0-10. Start your answer with "Rating"
+  utter_greet:
+  - text: Hey! What is your name? Start your answer with "Name is"
+  utter_name_confirm:
+  - text: Is your name {fname}?
+  utter_name_reenter:
+  - text: Enter your name again? Start your answer with "Name is"
+  utter_movie_suggestions:
+  - text: Would you like some movie suggestions, {fname}?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you {fname}?
+  utter_happy:
+  - text: I am glad
+  utter_goodbye:
+  - text: Bye {fname}
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- action_session_start
+- utter_greet
+- utter_ask_release_to
+- utter_new_entries
+- utter_ask_user_rating
+- utter_ask_release_from
+- action_check_ustatus
+- utter_goodbye
+- action_set_fname
+- action_set_olduser
+- action_fetch_imdb
+- utter_name_confirm
+- utter_name_reenter
+- utter_movie_suggestions
+- utter_happy
+- utter_did_that_help
+entities:
+- user_rating
+- year_to
+- year_from
+slots:
+  new_user:
+    type: bool
+    initial_value: true
+    influence_conversation: true
+    mappings:
+    - type: custom
+  fname:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      intent: name_entry
+  year_from:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: year_from
+      intent: release_from
+  year_to:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: year_to
+      intent: release_to
+  user_rating:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_rating
+      intent: movie_user_rating
