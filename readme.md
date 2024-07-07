@@ -9,27 +9,27 @@ This simple terminal-based Rasa chatbot application fetches top 5 movie titles f
 
 ## Installation
 1.  Clone the repository:
-> git clone [Repository URL]
+    > git clone [Repository URL]
 2.  Navigate to the project directory:
-> cd [project-directory]
+    > cd [project-directory]
 3.  Create a virtual environment:
-> python -m venv venv
+    > python -m venv venv
 4.  Activate the virtual environment:
-> source venv/bin/activate
+    > source venv/bin/activate
 5.  Install the required packages:
-> pip install -r requirements.txt
+    > pip install -r requirements.txt
 
 ## Basic Usage
 1.  Create a new project:
-> rasa init
-2.  Make sure you still have the YAML and Python files from the MyGit repository. 
-> If not pull them again.    
+    > rasa init
+2.  Make sure you still have the YAML and Python files from the MyGit repository.    
+    If not pull them again.    
 3.  Train a model using your NLU data and stories:
-> rasa train
+    > rasa train
 4.  Start an action server using the Rasa SDK:
-> rasa run actions
+    > rasa run actions
 5.  Load your trained model and talk to the chatbot on the command line:
-> rasa shell
+    > rasa shell
 6.  Greet the chatbot (hi, hello, etc) to start the session and follow the prompts.
 
 ## Implementation of the Requests
