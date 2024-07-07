@@ -24,6 +24,7 @@ This simple terminal-based Rasa chatbot application fetches top 5 movie titles f
     > rasa init
 2.  Make sure you still have the YAML and Python files from the MyGit repository.    
     If not pull them again.        
+    
 3.  Train a model using your NLU data and stories:
     > rasa train
 4.  Start an action server using the Rasa SDK:
